@@ -90,7 +90,11 @@ namespace CSharpAlgorithmsAndDataStructures
             al.AddRange(vals);
             Console.WriteLine("The capacity is: {0} and the count is {1}", al.Capacity(), al.Count());
             Console.WriteLine("Contains {0}: {1}", 10, al.Contains(10));
-
+            Console.WriteLine(al.toString());
+            //al.Remove(10);
+            //al.RemoveAt(3);
+            al.Reverse();
+            Console.WriteLine(al.toString());
 
         }
     }
