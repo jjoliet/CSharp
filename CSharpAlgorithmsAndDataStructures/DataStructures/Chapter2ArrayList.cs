@@ -220,7 +220,6 @@ namespace CSharpAlgorithmsAndDataStructures.DataStructures
          */
         public void Reverse()
         {
-            // count/2  for say 5 -> 2 -> i = 0 , i = 1    for 6 -> i = 0, 1, 2      count-1 = 5 -0, 5-1, 5-2 = 5, 4, 3
             for (int i = 0; i < count / 2; i++)
             {
                 T tempVal = list[i];

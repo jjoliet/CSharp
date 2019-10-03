@@ -7,7 +7,8 @@ namespace CSharpAlgorithmsAndDataStructures
     {
         static void Main(string[] args)
         {
-            UseCustomArray();
+            Chapter3Test1();
+            //UseCustomArray();
             /*
             Timer timer = new Timer();
             timer.StartTime();
@@ -96,6 +97,17 @@ namespace CSharpAlgorithmsAndDataStructures
             al.Reverse();
             Console.WriteLine(al.toString());
 
+        }
+
+        static void Chapter3Test1()
+        {
+            Ch3Array arr = new Ch3Array(10);
+            Random random = new Random(100);
+            for(int i = 0; i < 10; i++)
+            {
+                arr.Insert((int)(random.NextDouble() * 100));
+            }
+            arr.DisplayElements();
         }
     }
 }
