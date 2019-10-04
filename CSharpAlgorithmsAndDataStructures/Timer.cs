@@ -30,7 +30,7 @@ namespace CSharpAlgorithmsAndDataStructures
 
         public void Result()
         {
-            Console.WriteLine("It took: {0} Seconds", duration.TotalSeconds);
+            Console.WriteLine("It took: {0} Seconds", duration);
         }
     }
 }

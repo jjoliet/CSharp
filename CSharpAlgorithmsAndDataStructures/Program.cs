@@ -7,7 +7,8 @@ namespace CSharpAlgorithmsAndDataStructures
     {
         static void Main(string[] args)
         {
-            Chapter3Test1();
+            //Chapter3Test1();
+            Chapter3SortsTiming(100000);
             //UseCustomArray();
             /*
             Timer timer = new Timer();
@@ -41,14 +42,11 @@ namespace CSharpAlgorithmsAndDataStructures
 
         static int[] BuildArray(int size)
         {
-            if(size < 0)
-            {
-                size = 10;
-            }
+            Random rnd = new Random();
             int[] arr = new int[size];
             for(int i=0; i < size; i++)
             {
-                arr[i] = i;
+                arr[i] = (int)(rnd.NextDouble() *100);
             }
             return arr;
         }
@@ -99,15 +97,54 @@ namespace CSharpAlgorithmsAndDataStructures
 
         }
 
-        static void Chapter3Test1()
+        static Ch3ArraySorting Chapter3Test1(int size)
         {
-            Ch3Array arr = new Ch3Array(10);
+            Ch3ArraySorting arr = new Ch3ArraySorting(size);
             Random random = new Random(100);
-            for(int i = 0; i < 10; i++)
+            for(int i = 0; i < size; i++)
             {
                 arr.Insert((int)(random.NextDouble() * 100));
             }
-            arr.DisplayElements();
+            return arr;
+        }
+
+        static void Chapter3SortsTiming(int elements)
+        {
+            Timer time = new Timer();
+            Random rnd = new Random();
+
+            Ch3ArraySorting test = new Ch3ArraySorting(elements);
+            for (int i = 0; i < elements; i++)
+            {
+                test.Insert((int)rnd.NextDouble() * 100);
+            }
+            time.StartTime();
+            test.BubbleSort();
+            time.StopTime();
+            Console.Write("Bubble Sort {0} Elements: ", elements);
+            time.Result();
+            test.Clear();
+
+            for (int i = 0; i < elements; i++)
+            {
+                test.Insert((int)rnd.NextDouble() * 100);
+            }
+            time.StartTime();
+            test.SelectionSort();
+            time.StopTime();
+            Console.Write("Selection Sort {0} Elements: ", elements);
+            time.Result();
+            test.Clear();
+
+            for (int i = 0; i < elements; i++)
+            {
+                test.Insert((int)rnd.NextDouble() * 100);
+            }
+            time.StartTime();
+            test.InsertionSort();
+            time.StopTime();
+            Console.Write("Insertion Sort {0} Elements: ", elements);
+            time.Result();           
         }
     }
 }
